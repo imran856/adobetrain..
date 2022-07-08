@@ -1,0 +1,24 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="imran">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" comment="Employee Id"/>
+        <column xsi:type="varchar" name="comp_name" nullable="false" length="255" comment="Company Name"/>
+        <column xsi:type="timestamp" name="office_time"  comment="Time of Office"/>
+        <column xsi:type="mediumtext" name="desc" nullable="true" comment="Job Desc"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+   </table>
+
+   <table name="student">
+        <column xsi:type="int" name="stu_id" padding="10" unsigned="true" nullable="false" comment="Student Id"/>
+        <column xsi:type="int" name="id"  padding="10" nullable="false" unsigned="true" comment="Student Roll"/>
+        <column xsi:type="timestamp" name="office_time"  comment="Time of Office"/>
+        <column xsi:type="mediumtext" name="feedback" comment="Feedback"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="stu_id"/>
+        </constraint>
+         <constraint xsi:type="foreign" referenceId="IMRAN_ID_STUDENT_ID" table="student" column="id" referenceTable="imran" referenceColumn="id"/>
+   </table>
+
+</schema>
